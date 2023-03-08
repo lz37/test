@@ -1,2 +1,5 @@
 #!/bin/python3
-print('hello')
+import sys
+
+version = str(sys.argv[1])
+print(version)
