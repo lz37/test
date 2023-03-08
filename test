@@ -3,3 +3,4 @@ import sys
 
 version = str(sys.argv[1])
 print(version)
+print(version)
