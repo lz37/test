@@ -28,4 +28,12 @@ jobs:
           echo "$(python test ${{steps.version.outputs.value}})" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: release
-        run: echo ${{steps.body.outputs.value}}
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: test
+          body: ${{steps.body.outputs.value}}
+          token: ${{ secrets.RELEASE_TOKEN }}
+          draft: false
+          prerelease: false
+          files: |
+            README.md
