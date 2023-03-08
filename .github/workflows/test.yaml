@@ -23,6 +23,6 @@ jobs:
           python-version: "3.10"
       - name: get body
         id: body
-        run: python test ${{steps.version.outputs.value}}
+        run: echo"value=$(python test ${{steps.version.outputs.value}})" >> $GITHUB_OUTPUT
       - name: release
-        run: echo ${{steps.body.outputs}}
+        run: echo ${{steps.body.outputs.value}}
