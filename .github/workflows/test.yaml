@@ -25,7 +25,7 @@ jobs:
         id: body
         run: |
           echo 'value<<EOF' >> $GITHUB_OUTPUT
-          echo "python test ${{steps.version.outputs.value}}" >> $GITHUB_OUTPUT
+          echo "$(python test ${{steps.version.outputs.value}})" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: release
         run: echo ${{steps.body.outputs.value}}
